@@ -21,7 +21,7 @@ public enum LocksmithAccessibleOption: RawRepresentable {
         case String(kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly):
             self = .whenPasscodeSetThisDeviceOnly
         default:
-            self = .always
+            self = .afterFirstUnlock
         }
     }
     

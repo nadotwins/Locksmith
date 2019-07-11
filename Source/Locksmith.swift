@@ -58,7 +58,7 @@ public protocol SecureStorable {
 }
 
 public extension SecureStorable {
-    var accessible: LocksmithAccessibleOption? { return .always }
+    var accessible: LocksmithAccessibleOption? { return .afterFirstUnlock }
     var accessGroup: String? { return nil }
     
     var secureStorableBaseStoragePropertyDictionary: [String: Any] {
@@ -106,7 +106,6 @@ public extension SecureStorable where Self : InternetPasswordSecureStorable {
         var dictionary = [String: Any]()
         
         // add in whatever turns out to be required...
-        dictionary[String(kSecAttrAccessible)] = LocksmithAccessibleOption.always.rawValue
         dictionary[String(kSecAttrServer)] = server
         dictionary[String(kSecAttrPort)] = port
         dictionary[String(kSecAttrProtocol)] = internetProtocol.rawValue
